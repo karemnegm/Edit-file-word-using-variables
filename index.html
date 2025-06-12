@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طباعة جواب</title>
+</head>
+<body dir="rtl">
+
+
+
+
+
+
+<button onclick="generate()">Generate document</button>
+
+
+
+
+
+
+
+
+
+<script src="js/docxtemplater.min.js"></script>
+<script src="js/pizzip.js"></script>
+<script src="js/pizzip-utils.js"></script>
+<script src="js/FileSaver.js"></script>
+<script>
+    const name_user = "محمد";
+    const email_user = "gmail@gg.com";
+    const idd = "123456";
+function generate() {
+const data = {name_user: name_user, email_user: email_user, id_user: idd};
+const url = "template.docx";    
+PizZipUtils.getBinaryContent(url,
+function (error, content) {
+if (error) {throw error;}
+const zip = new PizZip(content);
+const doc = new window.docxtemplater(zip, {paragraphLoop: true, linebreaks: true});
+doc.render(data);
+const htmlContent = doc.getZip().generate({type: "blob",mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"});
+saveAs(htmlContent, 'output.docx');
+    });};
+</script>
+</body>
+</html>
