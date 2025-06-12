@@ -33,20 +33,5 @@ A web-based application that allows users to upload `.docx` templates and fill i
 3. Click “Generate Document”
 4. Download the filled file instantly
 
----
 
-## 📸 Screenshot
-
-![screenshot](./screenshot.png)
-
----
-
-## 🌐 Live Demo
-
-> Coming soon…  
-> Or host locally using a simple HTTP server:
-
-```bash
-npx serve .
-# or
 python3 -m http.server 8080
