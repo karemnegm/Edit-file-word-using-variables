@@ -33,5 +33,3 @@ A web-based application that allows users to upload `.docx` templates and fill i
 3. Click “Generate Document”
 4. Download the filled file instantly
 
-
-python3 -m http.server 8080
